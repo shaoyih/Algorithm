@@ -1,9 +1,8 @@
 package GraphAlgo.Utils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.Double.POSITIVE_INFINITY;
 
 public class GraphGenerator {
     List<int[]> edges;
@@ -57,12 +56,25 @@ public class GraphGenerator {
 
     }
 
-    public int[][] getAdjMatrix() {
-        int[][] graph = new int[n][n];
+    public double[][] getAdjMatrix() {
+        double[][] graph = new double[n][n];
+        for(int i = 0; i < n; i++) {
+            Arrays.fill(graph[i], POSITIVE_INFINITY);
+            graph[i][i] = 0;
+        }
         for(int [] e : edges) {
             graph[e[0]][e[1]] = e.length > 2 ? e[2] : 1;
         }
         return graph;
+    }
+
+    public void printGraph(double[][] graph) {
+        for(int i = 0; i < graph.length; i++) {
+            for(int j = 0; j < graph.length; j++) {
+                System.out.print(graph[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 
 }
