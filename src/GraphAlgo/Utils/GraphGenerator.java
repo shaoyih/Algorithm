@@ -19,9 +19,18 @@ public class GraphGenerator {
     public void addEdge(int x, int y) {
         edges.add(new int[]{x, y});
     }
+    public void addTwoEdge(int x, int y) {
+        edges.add(new int[]{x, y});
+        edges.add(new int[]{y, x});
+    }
 
     public void addEdge(int x, int y, int val) {
         edges.add(new int[]{x, y, val});
+    }
+
+    public void addTwoEdge(int x, int y, int val) {
+        edges.add(new int[]{x, y, val});
+        edges.add(new int[]{y, x, val});
     }
 
     public void addEdges(List<int[]> edges) {
